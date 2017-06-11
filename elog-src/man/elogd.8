@@ -1,0 +1,119 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH ELOGD 8 "January 15, 2003"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+elogd \- web server program for Electronic Logbook ELOG
+.SH SYNOPSIS
+.sp
+\fBelog\fR [ \fB-C \fIurl\fB\fR ] [ \fB-c \fIfile\fB\fR ]
+[ \fB-D\fR ] [ \fB-d \fIdirectory\fB\fR ] [ \fB-f \fIfile\fB\fR ] [ \fB-k\fR ]
+[ \fB-l \fIlogbook\fB\fR ] [ \fB-M\fR ] [ \fB-m\fR ] [ \fB-n \fIhostname\fB\fR ] 
+[ \fB-p \fIport\fB\fR ] [ \fB-S\fR ] 
+[ \fB-s \fIdirectory\fB\fR ] [ \fB-v\fR ] [ \fB-x\fR ]
+
+.SH DESCRIPTION
+.PP
+The Electronic Logbook
+.B ELOG
+can be used to store and retrieve messages through a Web interface. Depending
+on the configuration, the
+.B ELOG
+system can host one or more logbooks which are stored in separate sections on
+the server.
+.B elogd
+is the daemon program serving as a simple web server for the
+.B ELOG
+system. 
+.SH OPTIONS
+\fBelogd\fP accepts the following options:
+.TP
+.BI -C " url"
+clone remote elogd configuration
+.TP
+.BI -c " file"
+specify configuration file
+.TP
+.BR -D
+become a daemon
+.TP
+.BI -d " directory"
+specify logbook root directory
+.TP
+.BI -f " file"
+specify PID file
+.TP
+.BI -M
+synchronize with removing deleted entries
+.TP
+.BI -m
+synchronize logbook(s) with remote server
+.TP
+.BI -n " host"
+host where
+.B elogd
+will run
+.TP
+.BR -k
+do not use keep\-alive
+.TP
+.BI -l " logbook"
+specify logbook for `\-r' and `\-w' commands
+.TP
+.BI -p " port"
+port where
+.B elogd
+will run
+.TP
+.BR -S
+be silent
+.TP
+.BI -s " directory"
+specify resource directory (eg. themes, icons)
+.TP
+.BR -v
+debugging output
+.TP
+.BR -x
+enable execution of shell commands (unless compiled with this feature)
+.SH SEE ALSO
+.BR elog (1).
+.PP
+The full documentation for
+.B ELOG
+is maintained as an html manual. You can reach it from the package document
+directory.
+.SH WARNINGS
+.B elogd
+is run under a separate user/group
+.I elog
+, by default. You might
+change it via
+.I Usr
+and
+.I Grp
+options in configuration file. The configuration and stylesheet files should
+be readable by that user.
+.PP
+Passwords are transferred over the network in plain text and therefore, are not
+secure. So if passwords are used
+.B elogd
+should be started with the SSL option in the configuration file for secure connections.
+.SH AUTHOR
+Written by Stefan Ritt <stefan.ritt@psi.ch>.
+.PP
+This manual page was written by Recai Oktas <roktas@omu.edu.tr>, for the Debian
+GNU/Linux system (but may be used by others).

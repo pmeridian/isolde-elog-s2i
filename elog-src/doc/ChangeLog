@@ -1,0 +1,1519 @@
+Version 3.1.3, released April 21st, 2017
+========================================
+
+- Implemented rudimentary certificate check
+- Fixed crash with certain set of parameters and no password file is present
+- Added German UTF-8 file
+- Fixed missing CKEditor bug with "language = english"
+- Fixed crash when no username and email are supplied in the login page
+- Implemented “Restore” button
+- Implemented “List drafts” flag
+
+Version 3.1.2, released September 5th, 2016
+===========================================
+
+- Fixed two vulnerabilities
+- Added "sort by email" to config page
+- Updates some translations
+
+Version 3.1.1, released August 4th, 2015
+========================================
+
+- Updated CKEditor to version 4.5.1
+- Implemented "Date/Time format <attribute> = ..."
+- Implemented "Use Email Subject Edit = ..."
+- Replaced "Back" by "Delete" button
+- Fixed many issues with Draft Messages
+- CSS file is now in *addition* to the default file elog.css
+- Added LDAP documentation
+- Added "Logout to URL = ..." option
+- Added description of Apacher server authentication
+
+Version 3.1.0, released April 1st, 2015
+=======================================
+
+- No fools' day joke!
+- Added Indonesian help files
+- Implemented "Show last default" option
+- Allow subsitutions like $short_name in "Title image" option
+- Implemented draft messages and auto save feature
+- Reworked Drag & Drop to work also for ELCode and plain encoding
+- Resize editor window with browser window
+
+Version 3.0.0, released December 23th, 2014
+===========================================
+
+- Replaced insecure SSLv23 with TLSv1 method
+- Switched from SVN to GIT versioning
+- Implemented service under Mac OSC via launchd
+- Added LDAP support for authentication
+- Don’t overwrite certificated, themes and init scrip during ‘make install’
+- Create one logbook subdirectory pear year
+- Switched to CKEditor with Drag & Drop Upload (courtesy of Dario Milicic)
+
+
+Version 2.9.2, released April 27th 2012
+=======================================
+
+- Implemented "Preset on edit"
+- Increased stack size under Windows
+- Increased MAX_PARAM
+- Added escape char possibility to "\#" for substitutions
+- Abort program start if password file is write protected
+- Show error "File not found" on "Preset text" only if text is a file
+- Fixed problem with CSV import and first two lines disappearing
+- Added RSS description
+- Remove cookies when user is logged out
+- Delete always messages together with their replies
+- Strip html only for html encoded entries
+- Added nowrap to all date/time attributes
+- Apply reverse sorting to all attribute types
+- Added "login user" check (needed for global password files)
+
+Version 2.9.1, released February 20th 2012
+==========================================
+
+- Improved broken link handling
+- Fixed problem with record splitting introduced in FF 10
+- Added Xcode project file
+- Added extra parameter to mxml_parse_buffer
+- Do a "rsort" on date attributes if "Reverse sort = 1"
+- Fixed date substitution
+- Check for locked attributes on chkform()
+- Fixed missing user login time
+- Removed old -a -r -w password options from documentation
+- Set 'ufnm' cookie with full name, needed for shift check list
+- Fixed crash reported in elog forum entry #67084
+- Changed printchar() to putchar(), since the first is not available under native OSX
+- Check for inactive account during login
+- Added check for content-length to be non-negative
+- Print warning if "preset text" file cannot be found
+- Implemented SVG previews through ImageMagick
+- Show Kerberos error number
+- added rmoval of pid file
+- Switched off Kerberos support by default
+- Use logged in user's email address for From: in email notifications
+- Fixed bug with "." replacements in emails
+- Fixed mangeling of <> in email notification
+- Fixed missing error if user name exists already
+
+Version 2.9.0, released March 9th 2011
+======================================
+
+- Fixed corrupted config file under Ubuntu
+- Automatically log in after self registration
+- Fixed XSS issue with mail0
+- Fixed problem if an attribute contains "?"
+- Fixed bug with SSL connection shutdown
+- Added 'Toggle all' for MOptions
+- Moved 'Search text also in attributes' to the right
+- Added find by time from Andreas Luedeke
+- Implemented Kerberos authentication
+- Implemented "Propagate attributes = ..."
+- fixed bug with importing CSV containing a text body
+- fixed preview of import data
+- added confirmation for "Back" button
+- Added vcxproj files
+- Fixed bug with "B" attribute and quick filter
+- Made two logoobks with same subdir work (again)
+- Implemented mirroring through SSL
+- Fixed bug with moving attachments with thumbnails
+
+Version 2.8.1, released December 23th 2010
+==========================================
+
+- Fixed bug with regexec, thanks to Christian Richter
+- Fixed bug with $attachments in shell command
+- Fixed problem with hitting "submit" twice
+- Fixed submission_locked in <textarea>
+- Fixed bug with init script
+- Prevent form submission via <Enter> key, put focus on first input field
+- Implemented 'Thumbnail options'
+- Fixed crash with '%' in attribute and 'Preset on reply <attr> = Re: $sttr'
+- Added MIME-Version: 1.0
+- Fixed bug with name of textarea
+- Implemented 'List after submit'
+- Implemented 'Custom xxx form'
+- Add logbook dir to custom form
+- Implemented custom form
+- Fixed password conversion wiht several top groups
+
+Version 2.8.0, released August 2nd 2010
+=======================================
+
+- Truncate command line arguments if they exceed internal string lengths
+- Changed encryption method to strong encryption, thanks to Lukasz Olejnik
+- Implemented SLL passphrase, although this should be deprecated
+- Fixed three XSS holes, thanks to Lukasz Olejnik
+- Limit text body size for RSS feed to 2k to avoid lock-up for very long entries
+- Fixed JS bug with "Fix text"
+- Implemented 'Enable Smileys'
+- Fixed problem with cloning and "Guest menu commands = .." being present in the config file
+- Added option "Cell Style <atrib> <value>"
+- Fixed bug with URL in expanding groups using top groups
+- Fixed stack overflow of Select -> Edit with many replies
+- Increased socket timeout, show content length error correctly
+- Fixed bug with quick date filter and threaded display
+- Fixed problem with "'" in french translation for JavaScript
+- Added 'last 3 days' option from David Pilgram
+- Do no thread evaluation when doing filtering
+- Fixed usage of undefine 'date' under 'subst on reply...'
+
+Version 2.7.8, released December 2nd 2009
+=========================================
+
+- Implemented "Sort attributes = Date"
+- Implemented "Allow branching"
+- Implemented "Preset on first reply"
+- Avoid double substitutions on 'preset on reply'
+- Fixed paper clip display in replies
+- Removed "Pragma: no-cache" from export.* (IE SSL problem)
+- Do not execute 'Subst <attrib>' on replies
+- Execute 'subst on edit' and 'subst on reply' AFTER submission
+- Added 'summary line length'
+- Added check for full file system in order not to corrupt the password file
+- Implemented "sort attribute options"
+- Fixed problem with init_resize and plain text with restricted message height, thanks to Richard S
+- Avoid sending empty header after synchronizing
+
+Version 2.7.7, released July 31st 2009
+======================================
+
+- Upgraded FCKEdit to 2.6.4.1
+- Changed ELCode select box names not to collide with "size" attribute
+- Better check for inline images
+- Fixed crash with two logbooks using same subdir
+- Completed list of forbidden attributes
+- Fixed broken inline images in email notification
+- Fixed problem with invalid encoding
+- Fixed JavaScript check for required date_time attributes
+- Implemented "Thumbnail size = 0"
+- Reworked memory allocation in copy_to
+- Implemented "Collapse to last"
+- After a "Move to" the next thread head is displayed
+- Use dedicated class for text and attachment titles in list display
+- Allow "Submit" if "Edit" is in menu list
+- Removed CR/LF from redirection to avoid XSS
+- Fixed bug with RSS feed if logbook is empty
+- Fixed problem with auto indices
+- Fixed required attributes under a condition
+- Fixed wrong file names on copy/move of old entries
+- Replaced signal() calls by sigaction() calls to avoid Solaris problems, thanks to Paul T. Keener
+- Include thumbnails in "move to" and "copy to" commands
+- Implemented "Preserve IDs"
+- Fixed inline image references when moving entries between logbooks
+- Fixed NULL pointer at end of scipt_tags[] array
+- Fixed crash with password recovery and bottom text
+- Make password recovery working with protected selection pages
+- Added Open XML MIME types
+- Hide attachment column in lis display if "enable attachments = 0"
+- Fixed bug with ROptions when one option is a substring of another
+- Fixed cookie handling, thanks to Simon Patton
+
+Version 2.7.6, released April 14th 2009
+=======================================
+
+- Fixed broken images for Safari
+- Fixed crash with bottom text on protected selection page
+- Fixed error message when 'Show text = 0'
+- Fixed problem with emtpy email address
+- Fixed XSS vulnerability based on 'img onerror='
+- Return 404 in case of error
+- Implemented 'Hide comments'
+- Fixed case for escaped ELCode tags
+- Fixed bug in cookie handling
+- Fixed broken display with 'preview attachments = 0'
+- Fixed problem with missing boundary in POST request
+- Fixed crash with incomplete attachments
+- Show errer of forbidden attributes are used
+- Fixed crash when HTTP is missing in header, implemented more consistent keep-alive handling
+- Fixed bug with empty cookies
+- Show "Last day" if "Last x" is in the menu list
+- Made CSV import of dates working
+- Only store allowed cookies
+- Added "<>" around email address for "MAIL FROM:"
+- Allow attribute substitution on 'execute delete'
+- Implemented "tooltip <attrib> <value>"
+- Fixed return buffer overflow with very long entries
+- Fixed problem with locked date/time attributes and re-edit of pages
+- Fixed problem with numeric attributes and multi edit
+- Fixed problem with EPS previews in list display
+- Removed '/' from url_encode again, use url_slash_encode to fix redirection problem with quick filter and attributes containing '/'
+- Changed '####' tag generation from 'Preset <>' to 'Subst <>' in order to avoid double entries
+- Include "MIME-Version" always in email header
+- Added 'export to:' on find page
+- Fixed buffer overflow with very long cookies
+- Fixed quick filter redirect problem with attributes containing '/'
+- Made select/edit work with date/time attributes
+- Changed parameter to make things more obvious
+- Fixed crash with very long entries
+- Attributes stay now in find page with conditional attributes
+- Made 'Hide' work with 'Show attachments = 0'
+- Fixed wrong cookies which caused problems with Chrome
+- Fixed crash with invalid URL
+- Fixed bug with conditional attributes on find page
+- Added function to determine line breaks in HTML code
+
+Version 2.7.5, released Sept. 22th 2008
+=======================================
+
+- Added msvcr71.dll to Windows distribution
+- Fixed problem with quick filters and ^xxx$ search
+- Fixed bug which could crash elogd
+- Added "past-n" to display last n hours
+- Encode command line if it contains a '<'
+- Evaluate "skiplock" parameter to make elog submissions work with "use lock=1"
+- encoded logbook in case it contains blanks
+- added "skiplock" parameter to make elog work with "use lock=1"
+- Call _exit in my_shell to prevent calling of cleanup()
+- Search for whole words in quick filter using ^*$ regular expression
+- Made preset of $user_email work with attributes of type useremail
+- Added code to check for invalid URL in the form 'http://server//xyz' 
+- Do not go into infite loop for interrupted POST transfer
+- Added sorting for muserlist and museremail
+- Made quick filter work with icons
+
+Version 2.7.4, released June 9th, 2008
+======================================
+
+- Fixed 'next day' in quick filter with 'date' attributes not showing up correctly
+- Fixed 'preview attachments' with images
+- Made '$entry date' subsitutions work with datetime attributes
+- Replaced 'install -D' by 'mkdir -p' (flag not recognized on some systems)
+- Implemented conditional attributes in find form
+- Fixed 'preset text' under condition with top groups
+- Show localized date on edit form
+- Added SSL libs for elog
+- Show nuber of attachments in summary view if >5
+- Stealing of lock now works in other languages
+- Display attachment icon with "thread display"
+- Implemented attachment icons in summary/threaded list
+- Implemented 'style <attribute> <value> = ...'
+- Added -%d argument for all conversions
+- Fixed problem with auto index and missing attribute
+- Added timezone for CYGWIN
+- Calculate index for automatically incremented preset attributes by searching all old messages for the highest used index
+- Fixed display of inline images and truncated ASCII attachments in list mode
+- Made 'ID' work for quick filter
+- Implemented 'attachment lines'
+
+Version 2.7.3, released Feb. 22th, 2008
+=======================================
+
+- Implemented native SSL support
+- Added version information to elog.c
+- Use absolute links for inline images in email notifications
+- Put thumbnails in HTML encoded email notifications
+- Adjusted menu height
+- Remove ',' from date in CSV export
+- Replace elog:... by HTML link when encoding is HTML
+- Fixed importing of datetime attributes
+- Added patch from Olivier Callot regarding max. line length in summary display
+- Fixed shell problems under Linux
+- Added code to auto-detect ImageMagick
+- Implemented thumbnails for PDF and images with resizing and rotation
+- Allow Ctrl-Shift-PgUp/PgDn for browsing
+- Moved browsing buttons to the left side
+
+Version 2.7.2, released Jan. 30th, 2008
+=======================================
+
+- Fixed vulnerability if logbook contains HTML code
+- Fixed display of locked datetime attributes
+- Fixed problem with FCDeditor in French
+- Fixed problem with image upload in other languages
+
+Version 2.7.1, released Jan. 22th, 2008
+=======================================
+
+- Set current encoding to ELCode if 'allowed encoding = 3'
+- Improved sorting speed when 100000's entries are present
+- Fixed bug with truncated entries
+- Implemented 'sort attributes = ID'
+- Changed default encoding to 2
+- Do not translate 'activate' (gives problems by email program encoding)
+- Implemented pipelining
+- Changed default for allowed encoding
+- Fixed possible buffer overflow
+- Fixed possible endless loop in replace_inline_img
+- Convert "elog:/<n>" to "<ID>/<n>" for HTML encoding
+- Display icon comment also in threaded and summary view
+- Fixed &nbsp; & co. in summary view
+- Fixed umlaute in summary display
+- Added search button for quick filters for MSIE
+- Upgraded to FCKeditor 2.5beta
+- Implemented 'Use Email URL'
+- Fixed bug with --+Text+--
+- Implement InsertLink
+- Fixed double sent attachments in email notifications
+- Added CTRL-N for new list item, thanks to Bill Pier
+- Changed resource directoy to be removed on uninstall
+- Added FCKeditor extraction to Makefile
+- Fixed email notification with HTML inline images
+
+Version 2.7.0, released Oct. 25th, 2007
+=======================================
+
+- Incorporated FCKedit HTML editor into ELOG
+- Fixed bug with nonworking 'date' quick filter
+- Fixed bug with quick filters and boolean attributes
+- Implemented display of upload time/date
+- Added $text to substitutions in execute
+- Allow '-' in attributes together with required attributes (JS problem)
+- Made insertion of smileys/pictures work with 'use lock = 1'.
+- Added importing of dates in CSV and XML files
+- Do not show any subscription on self registration, added note in notification to click on 'config' to subscribe
+- Fixed XSS vulnerability with subtext
+- Added '-v1' verbose option
+- Do not substitute '|' if not inside a table
+- Fixed problem with HTML encoding getting unchecked on reload
+- Replaced seteuid/setegid by setreuid/setregid for HP-UX compatibility
+- Implemented forward/backward navigation with Ctrl-PgUp/PgDn/Home/End
+- Applied patch from Peter Rienstra for HP-UX 64
+- Display three radio buttons in find form for boolean attributes
+- Made quick filter work with boolean attributes
+- Added code for resizing edit box
+- Implemented multi-edit 
+- Fixed bug with MOptions under conditions and upload
+- Fixed bug that only one page got displayed if 'printable output' was selected in find page
+- Added 'keep original entry ID' for XML import
+- Implemented xml import
+- Implemented anchors in ELCode
+- Implemented [line] tag
+- Added check to prohibit submission of an entry which has been 'stolen' by someone else.
+- Fixed wrong links after synchronization of individual logbooks
+
+Version 2.6.5, released Apr. 13th, 2007
+=======================================
+
+- Added array bounds checking
+- Added date/time button with AJAX updating
+- Changed 'remember me...' text
+- Implemente museremail, remove '|' in email list and remove duplicate email addresses
+- Check for forbidden attributes "Date" and "ID"
+- Documented keyboard shortcuts
+- Made conditional attributes work for quick filters
+- Skip locked entries during synchronization
+- Added CTRL+P and CTRL+S shortcuts
+- Added CTRL key shortcuts for ELCode
+- Replaced 'hidden attributes' by 'show attributes edit'
+- Implemented 'search all logbooks = 2'
+- Removed parameter sorting (did screw up group ordering, not really needed)
+- Implemented simple tables
+
+Version 2.6.4, released Feb. 17th, 2007
+=======================================
+
+- Fixed problem with preset string containing '%'
+- Fixed bug with tooltips in radio buttons
+- Implemented 'Default email from'
+- Use 'use email from' only if no user email is available (as written in the documentation)
+- Implemented tooltips for ROptions
+- Fixed bug in help file redirection
+- Implemented [code1] ELCode tag
+- Increased 'email all' to 200 entries
+- Fixed crash in allocation of mail_to
+- Implemented separate Cascading Style Sheets for different output media
+- Fixed problem with "Update" command when "new" (not "New") is in "Menu Commands"
+- Implemented proper sorting of numeric attributes
+- Fixed "Preset <date-attr> = 0"
+- Fixed bug with quick filters and attributes with blanks
+- Show only subscribe options for logbooks which email notification turned on
+- Made quick filter improvements work with subtext
+- Improved quick filters without all the buttons
+- Fixed signed/unsiged bug
+- Exclude UTF-8 characters > 128 from substitution in XML export
+- Use charset from config file for XML export
+- Added debug output for shell execution
+- Applied additional patch from Ulf Harnhammar
+- Increased tooltip size to 10kChar
+ 
+Version 2.6.3, released Nov. 28th, 2006
+=======================================
+
+- Fixed wrong directory for synchronization MD5 files
+- Implemented "Tooltip <attribute option>"
+- Implemented "muserlist"
+- Fixed wrong display of smileys with uppercase characters
+- Implemented "useremail" attribute type
+- Moved menu bar to bottom on "new user page"
+- Fixed wrong DST calculation in my_timezone
+- Implemented "all display limit"
+- Applied patch from Ulf Harnhammer to fix incorrect handling of *printf() calls
+- Prevent crash if logbook "global<xxx>" is accessed and a logbook "global<xxx>" is defined in config file
+- Skip comment lines in config file starting with '#' or ';' correctly
+- Mention that password file must reside in logbook directory
+- Skip "entries per page" in CSV, XML and RAW export
+- Fixed wrong timezone under MacOSX
+- Fixed wrong date display in threaded mode
+- Improved performance of rsputs_elcode somehow
+- Fixed problem with activating user accounts under non-english languages
+- Improved error output if password file cannot be opened
+- Fixed wrong "Suppress email notification" with conditional attributes
+- Added czech translation
+- Display activation message
+- Changed ?) smiley to ?-)
+- Implemented "suppress email on edit"
+- Implemented 'allowed encoding' option
+- Changed location of bottom/top text files
+- Fixed wrong truncation of email recipient
+- Added 'preset on duplicate'
+- Do attribute substitution in email recipients
+- Display proper error message if config file cannot be read
+- Added 'preview attachments' and 'main tab url'
+- Added "Main tab URL"
+- Preview attachments in edit form if not turned off via "Preview attachments = 0"
+- moved password file, log file etc. to logbook directory
+- improved shell substitution speed
+- Changed eek.png to astonished.png
+- Fixed bug with multiple conditions which was introduced in SVN 1696
+- Fixed inline image insertion in Internet Explorer
+
+Version 2.6.2, released July 11th, 2006
+=======================================
+
+- Fixed crash on email notification for edits
+- Implemented 'list conditions'
+- Fixed problem with broken navigation links (strencode2 got wrong 'size' parameter)
+- Fixed wrong focus switching to text box for conditional attributes
+- Implemented "bottom text login"
+- Fixed crash on mirroring with write password
+- Do $shell() substitution after attribute substitution
+- Fixed problem with using locks and changing encoding
+- Implemented "Anonymous" substitution if no user is logged int
+- Write email text to logfile
+- Show attachments by default in full list mode
+- Changed "cool" icon from 8) to 8-) in order to avoid misinterpretations
+- Implemented $version and $revision in bottom text
+- Implemented "Hidden attributes = ..."
+- Fixed invalid link if searched in all logbooks
+- Fixed broken 'protect selection page'
+- Added tooltip display in normal list mode and entry view
+- Replaced forkpty() with shell redirection to temporary file
+- Fixed illegal submit from curl()
+- Fixed problem with closing </ol> / </ul>
+- Strip ANY logbook in new redirection method
+- Do not allow empty passwords or passwords with blanks
+- Added user name check for blanks
+- Fixed calender month selection bug
+- Implemented 'allow password change'
+- Added new redirection code without using 'URL =' statement
+- Added heading to ELCode tags
+- Added IP address to log file
+- Fixed potential buffer overflows
+- Fixed problem with MOptions and reedit
+- Fixed problem with MOptions inside submit_elog()
+- Don't show ELCode buttons if "show text = 0"
+- Applied patch from Mike Pittelkow <mikep@isd.net> to compile under FreeBSD
+- Fixed broken inline images
+
+Version 2.6.1, released Jan 19th, 2006
+======================================
+
+- Major security fix
+- Prohibit '..' in URLs
+- Use absolute links only for email notification
+- Added string substitution for email heading
+- Improved error display in sendmail()
+- Fixed quick filters with MOptions
+- Highlight search results in http link correctly
+- Removed (int)'s for 64-bit compatibility
+- Removed "nowrap" from MOptions and ROptions attributes in edit form
+- Fixed problem with attachments containing "HTTP" in their name
+- Fixed bug with ### presets
+- Added SVN revision to server version in HTTP header
+- Fixed problem with empty bottom and top text
+- Fixed bug with sorting attributes
+- Show SVN revision on bottom of page
+- Fixed wrong </td></tr> when showing attachments in list mode
+- Fixed problem with page navigation after "find" command
+- Implemented "Fonts = " option
+- Fixed HelpELCode page permission with guest menus
+- Highlight previous entry in full list mode
+- "List" link goes to corresponding listing page
+- Fixed problem with missing non-required attribute
+- Strip attachments on "duplicate"
+- Don't evaluate preset attributes on "duplicate"
+- Implemented $shell substitution
+- Fixed double entries when using inline images
+- Added warning it email notification buffer size exceeded
+- Increased mail notification buffer for long attachments
+- Fixed bug in self registering
+
+Version 2.6.0, released Dec 14th, 2005
+======================================
+
+- Major new feature: Implemented ELCode tags
+- Improved error handling of uploaded images
+- Implemented first version of inline images in email notification
+- Removed "nowrap" from attribute display in edit form
+- Fixed crash on password reminder with invalid SMTP server
+- Implemented absolute redirection via URL statement in logbook selection page
+- Implemented proper time zone handling when sorting entries
+- Show last page in list display per default if reverse sort is off
+- Implemented logging level 4
+- Removed help/language files from main directory and put them in resources directory
+- Renamed help and language files
+- Added time zone to elog entry
+- Fixed problem with search highlighting and ELCode
+- Fixed problem with [URL="file://...]
+- Removed fixed text size in class "messagepre"
+- Implemented escape character for http://, mailto:, etc.
+- Added darwin specific changed from Exaos Lee
+- Added Chinese language files
+- Mode cookies expire after ten years
+- Fixed problem with 'POST' in search text
+- Modifications made on flight CA931
+- Added '\' escape for smileys
+- Implemented show/hide attachments in full view
+- Limit summary lines to 150 characters in threaded mode
+- Fixed infinite redirection with ?fail=1
+- Fixed problem with extendable attributes which are fixed during edit
+- Fixed bug with subtext quick filter
+- Show HTML logbook comment properly
+- Implemented 'Subtext' quick filter
+- Fixed problem with long subjects by splitting it into separate encoded words
+- Fixed login problem with protected selection pages and top groups
+- Do not distinguish between invalid user name and invalid password for security reasons
+- Added error output if password file cannot be written
+- Implemented 'Email Format = 64' for only attachment names
+- Implemented 'resolve host names'
+- Added icons for 'show new/all'
+- Added 'filter menu text'
+- Added validity check for year in date/time attributes
+- Added 'Edit page title'
+- Added 'reply comment'
+- Changed 'summary page title' to 'list page title'
+- Changed 'rss feed' to 'alternate'
+- Added $elogbook
+- Made elog: links abolute for email notification
+- Implemented 'change <attrib>' and 'list change <attrib>'
+- Applied pointer casting patch from Recai
+- Fixed {n} display with ROptions
+- Added condition evaluation in list display
+- Replaced tcp_hostname by listen_interface
+- Added line break for thread display
+- Made conditional attributes also work for email notification
+- Implemented conditional attributes also for display
+- Made 'list' work together with 'start page = 0?cmd=Last'
+- Do not interprete ELCode inside [code]...[/code]
+- Removed 'host:' for HTML/1.0
+- Added 'email attributes' option
+- Added '\' as escape character for HTML and ELCode tags
+- Added 'title' to all icons for FireFox
+- Treat attributes with <img> as HTML
+- Added 'suppress default = 3'
+- Added tooltip to logbook selection bar
+- Added 'default encoding'
+- Converted links to absolute URLs for threads
+- 'Show all entries' keeps parameters from original search
+- Put absolute link for CSS
+- Added image insertion by JScript
+- Added [*] for LIST
+- Changed 'find menu' to 'list menu'
+- Fixed bug with user activation and global password files
+- Fixed problem with reverse sort in quick filters
+- Applied patch from Emiliano with strftime workaround
+- Use absolute http:// links for smileys
+- Implemented last_activity, HTML email
+- Switched login page to POST method
+- Only use letters in randomly generated recovery password
+- Fixed 'pippo-bug' of 'list display' option
+- Fixed problem that encoding could not be selected on new entries
+- Use orig_author for reply quoting
+- Changed default font
+- Remove hard wraps for textarea in non-plain mode
+- Added smpt username
+- Changed 'set current time' to 'insert current time'
+- Added confimation dialog for removing users
+- Supersede 'Display mode' by cookie
+- Store list mode in cookie
+- Change '(' to '\(' in quick filters for regex matching
+
+
+Version 2.5.9, released May 2nd, 2005
+=====================================
+
+- Added str_escape from Emiliano Gabrielli
+- Implemented 'case sensitive search' flag
+- Applied patch from Emiliano to fix possible buffer overflow
+- Fixed crashes with very long (revisions) attributes
+- Fixed missing icons in top groups
+- Fixed wrong year under IE with datetime attibutes
+- Added SMTP error reporting
+- Added 'set current time/date' funcitonality
+- Use base64 encoding for email subject
+- Adde 'Raw' mode for export
+- Fixed bug with conditions and '&'
+- Fixed crash on 'm*' regex search
+- Redirect to source logbook for copy/move
+- Open attachments in separate browser window
+- Implemented drop-down boxes for copy/move also on individual entry page
+- Implemented 'Duplicate' command
+- Implemented datetime format
+- Subsittute ' ' in attachment file names by '_'
+- Changed is_ascii() to accept umlaute
+- Implemented 'expand selection', defaulting to one
+- Applied patch from Recai to give precedence to directories from the command line
+- Fixed problem with '&' in href links
+- Fixed problem with 'protect selection page' and invalid authentication
+- Fixed bug with crashing elog on 'protect selection page'
+
+Version 2.5.8, released March 21st, 2005
+========================================
+
+- Fixed problem with MOptions and elog
+- Implemented option 'link display'
+- Show attributes as HTML if they contain '<b>' etc.
+- Fixed problem with multiple extendable options
+- Fixed bug with resubmit box and conditional attributes
+- Implemented email subscriptions for individual logbooks
+- Encode '&' correctly if present in 'Start page' option
+- Implemented support for thumbnail display
+- Implemented MXML for password file
+- Applied patch from Emiliano Gabrielli to use chkext()
+- Improved speed by pre-parsing configuration file
+- Applied patch from Heiko Scheit fixing problem with 'Show attributes' causing the 'Format ...' options to be ignored
+- Implemented $attachements subsitution in 'execute' command
+- Added web link to regular expressions
+- Test regular expressions for validity
+- Use 'attachmentframe' style
+- Fixed HTML code to pass validator
+
+Version 2.5.7, released Februar 14th, 2005
+==========================================
+
+- Fixed buffer overflow which was already exploited to obtain
+  shell access
+- Fixed security bug which allowed to download a config file
+  containing a write password without supplying this password
+  first
+- Solved bug with 'fixed' ROptions attributes
+- Added missing 'alt' tags to images
+- Use admin user email in 'from' field if nothing else is availabe
+- 'Preset attribute' now also works with conditional attributes
+- Fixed wrong '%S' instead of '%s' in charset
+- Do not display .EPS files inline as ASCII files
+- Fixed problem with conditional attributes in French
+- Removed superfloous 'mailto:' in substitution
+- Added highlighting for search results in attributes
+- Fixed bug yielding in wrong search results
+
+Version 2.5.6, released Januar 25th, 2005
+=========================================
+
+- Implemented 'Mirror exclude'
+- Switched from GIF to PNG
+- Remove any CR/LF from attributes submitted from browser
+- Implemented OR'ing of MOptions values in find page
+- Display thread in single entry page if present
+- Implemented 'show attributes'
+- Made extendable attributes work with MOptions
+- Added message_id and date to CSV export
+- Made extendable attributes work with conditional attributes
+- Logbook hierarchy can now be deeper than two levels
+- Cancel button on 'create new logbook' now also works without password files
+- Fixed non-functioning Cancel button in 'create new logbook'
+- Changed date format to RFC-822 in RSS feed
+- Fixed endless loop with handcrafted POST header
+- Changed locale to 'C' for email header date
+- Use hostname from -n parameter for redirection if given
+- Fixed attribute substitutions in 'use email from'
+- Fixed problem with invalid RFC2822 date in email header for different locale
+- Implemented 'sort attribute'
+- Look for parameters first under conditions, then unconditional if not found
+- Fixed bug in XML export
+- Implemented USERLIST as attribute type
+- Increased NAME_LENGTH to 1500, requires a stack size of 4MB
+- Changed charset for RSS feeds
+- Fixed wrong link if last entry in logbook has been moved
+
+Version 2.5.5, released November 3rd, 2004
+==========================================
+
+- Display ASCII attachments inline, with possibility to hide them
+- Implemented regular expressions in search
+- Implemented RSS feeds
+- Added synchronization from command line of elogd
+- Fixed ~20 bugs
+
+Version 2.5.4, released August 4th, 2004
+================================--======
+
+- Implemented cloning to set-up a mirror server
+- Fixed problem with 'preset text' under conditional attributes
+- Added JavaScript code onunload() if locking is used, to avoid
+  stale locks
+- Made substituions work correctly with date attributes
+- Implemented deletion of logbooks through web interface
+- Implemented renaming of logbooks through web interface
+- Fixed email notification problem if URL does not contain a trailing '/'
+- Redirect login screen if URL does not match the one in the config file
+- Extract and use 'X-Forwarded-Host:'
+- Do a el_index_logbooks on HUP signal under Unix
+- Added $utcdate
+- Fixed problem of password change when using crypt()
+- Admin user has to supply own old password on password change
+- Omit 'preset text' on edit of entries
+- Added error display if max. number of attribute options gets exceeded
+- Implemented 'show top groups' flag
+- Fixed problem that admin user of top group could change global section
+- Added 'fix text' flag
+- Fixed problem with options list containing several quotation marks
+- Implemented synchronizing during cloning
+- Don't evaluate 'preset xxx' on replies
+- Implemented 'preset on reply'
+- Implemented 'tooltip <attribute>'
+- Use 'format <attrib> = 1' also in entry form
+- Implemented 'max content length'
+- Advanced message handling implemnted by Recai Oktas, usage of syslog
+  under Unix and Event Log under Windows
+- Added size parameter to getcfg() to avoid buffer overflows
+- Fixed bugs with https:// in URL
+- Supply full path to elogd.cfg when running elogd as windows service
+- entry deletion during synchronization now uses confirmation
+- Fixed problem that attachments could not be deleted
+- Fixed wrong date on date attributes on edit/reply if attribute is fixed
+- Increased possible size of 'welcome title' to 10000 chars
+- Made p<attribute>=value work again
+- Fixed problem with {..} in attributes
+
+
+Version 2.5.3, released June 7th, 2004
+======================================
+
+- Implemented favicon (little icon displayed next to bookmarks in Mozilla browser)
+- Several problems and bugs with quick filters fixed
+- Implemented "protect selection page"
+- Implemented text body CSV import
+- Changed redirection to absolute path (as defined in HTTP standard)
+- Allow ',', '.' and '-' in numeric format
+- Added <hr> and <br> to be recognized as HTML in attributes
+- Fixed stack overflow under Windows on resubmit of entry
+- Added NT/XP service functionality
+
+Version 2.5.2, released March 26th, 2004
+========================================
+
+- Improved synchronization speed
+- Implemented 'display <attribute>'
+- Implemented XML encoding
+- Implemented CSV import and XML export
+- Implemented 'guest list display'
+- Implemented 'extendable options' for MOptions
+- Conditional attributes get evaluated correctly during editing of existing entries
+- Fixed crashing elogd in threaded display
+- Implemented option 'guest display'
+- Implemented OR's and AND's of several conditions
+- Change POST action to './' for OS-X IE
+- Strip HTML from title bar and summary display
+- Fixed bug with MOptions and conditional attributes
+- Implemented 'ID display'
+- Fixed bug with supressed email notification box and conditional attributes
+- Substitutions now also work with 'preset text'
+- Added Prepend/Append on Edit/Reply
+- Substitution of $message id and $entry time now works on all possible places
+- Allocate heap memory in display_line
+- Fixed bug with date attribute email notification
+- Fixed bug with top text
+- Added 'edit' and 'delete' to 'list display'
+- Added CSV import page
+- Show attribute values as HTML if the contain <a> or <img> in listing
+- Fixed bug with 'start page = 0?cmd=Last
+- Fixed bug in el_decode, added <label> to buttons
+- Expand substitutions with 'preset' and conditional attributes
+- Automatic hot links terminated with a '.' get correctly displayed
+- Made 'subst <attrib> = $<attrib>' work correctly
+- Removed javaEnabled()
+- Improved synchronization algorithm. Conflicting entries are properly copied if one of them got deleted
+- Made 'main tab' work with top level groups
+
+Version 2.5.1, released February 17th, 2004
+===========================================
+
+- Avoid last '\0' in flush_return_buffer()
+- Added CSV output
+- During synchronization, display link to received entries
+- Implemented calendar
+- Added entry counter
+- Added form validation via JavaScript
+- Do not renumber entries which are identical
+- Fixed bug with "find in all logbooks" under foreign languages
+- Fixed bug wiht "last submission" display
+- Change CRLF -> CR when saving elogd.cfg under Unix
+- Changed "entry date" to "entry time"
+- Changed "Date format" to "Time format"
+- Implemented "Type <attrib> = date"
+- Implemented search and quick filter facilities for date attributes
+- Added Japanese language support
+
+Version 2.5.0, released January 28th, 2004
+==========================================
+
+- Implemented mirroring, see new section in config.html
+- Updated all translation files with current set of required stings
+- Search 'all logbooks' only for current top group
+- Changed 'message' to 'entry' consistently
+- Removed '{n}' in quick filter and find page list
+- Display months on find page localized
+- Implemented setlocale() for strftime()
+
+Version 2.4.1, released January 13th, 2004
+==========================================
+
+- Added "top text" option
+- "Bottom text" and "Top text" are displayed now on ALL pages
+- Only section of current logbook can be edited in elogd.cfg, this
+  makes it possible to declar different administrators for different
+  logbooks
+- Added "top group" option to have completely separated logbook
+  groups without having to run multiple elogd servers in parallel
+- Added logging for SMTP communication (for debugging)
+- Added "last submission" option
+- Evaluate configuration options after conditional attributes change
+- Implemented expansion of logbook selection page
+- Fixed bug that text disappeared after upload
+- Admin users can edit "[global <top group>]" and "[global]" sections
+- User names in configuration page selection box are now sorted
+
+Version 2.4.0, released January 5th, 2004
+=========================================
+
+- Renames "Display search" to "List display"
+- Fixed various HTML errors
+- Increased timeout in SMTP conversation
+- Create password file if not existing
+- User cannot change login name if already existing
+- User cannot search in logbooks of which he has no access
+- Added date of last entry in logbook selection page
+- Fixed stack overflow on long reply-chains
+- Added MAX_REPLY_TO
+- Added 'restrict edit time' configuration option
+- Improved speed of long searches significantly
+- Added 'use email heading'
+- Changed email notification format
+- Added 'comment <attribute>'
+- Added 'date on reply' flag
+- Implemented conditional attributes
+
+Version 2.3.9, released July 15th, 2003
+=======================================
+
+- Fixed problem when submitting elog.c itself as an attachment through elog.exe
+- Added option "Use Lock"
+- Added option "Title image"
+- Don't display non-allowed menu items in search list display
+- Remove blanks from "Referer:"
+- Fixed problem with Reply-To in elog utility
+- Don't send email notificatin to users which are not in the 'Login user' list
+- Replace 'Email message body' by 'Email format'
+- Send attachments as email attachments
+- Don't display more than 10 email recipients
+- Made default for "Filteres browsing" zero
+- Added "Format <attribute> = width, size, flags, css1, css2", this requires
+  an update of the default.css file
+- Display error if email notification fails
+- Added execute on new/edit/delete functionality, added -x flag
+- Fixed problems with coloring hyperlinks in the find result page
+- Reply in elog utility now puts "> " in front of old text
+- elog utility can edit old messages (with new "-e" flag)
+- Added "loggin level = 1,2,3"
+
+Version 2.3.8, released June 4th, 2003
+======================================
+
+- remove message lock on "back" button
+- On config user page, don't go back to logbook page after changing a user as admin
+- Check for .gif & co files in resource directory, then in themes directory
+- for printable search result output, display all pages
+- Added "Guest selection page" option
+- Added possibility to reference attachment with elog:<id>/<n> with <n> the attachment
+  number starting with 1
+- elog utility can now read text from stdin (or piped in via "|")
+
+Version 2.3.7, released May 15th, 2003
+======================================
+
+- Fixed bug in password recovery with logbooks containing blanks
+- Fixed bug with logbooks containing blanks in registration notification
+- Added icon for protected logbooks
+- Increased number of attachments to 50
+- Implemented 3D cell frames
+- Added anchor for attachments
+- Replace CRLF.CRLF by CRLF..CRLF in email notifications
+- Option 'selection page' can now contain absolute URL
+- Removed "mailto:" in email notifications
+- Sort correctly upper and lower case
+- Added warning if message is being edited
+- Get remote host from X-Forwarded-For: in case of proxy
+
+Version 2.3.6, released April 23rd, 2003
+========================================
+
+- Eliminated WEB_BUFFER_SIZE, made memory allocation dynamically
+- Fixed bug that attachments were deleted on reply
+- Added flag "Hidden = 0|1"
+- Added warning if maximum number of attachments reached
+- Fixed bug: Upon login on a logbook with guest access, one got
+  back to the "not logged in" page if username or password was wrong
+
+Version 2.3.5, released April 9th, 2003
+=======================================
+
+- Added option "Summary page title"
+- Translate "Date" correctly
+- Changed "#" to "ID"
+- Added "Remember me" button
+- Added password recovery facility
+- Made "Self register = 3" work with languages other than English
+
+Version 2.3.4, released April 2nd, 2003
+=======================================
+
+- Added option "Quote on reply"
+- Added option "Admin textarea"
+- Fixed problem that replies with attachment upload erased original
+  messages
+- Fixed enless loop if user gets renamed in password file but browser
+  keeps old cookie
+- Only ownwer can delete entry if 'restrict edit = 1'
+- Fixed error that logbook URL was wrong if messages are submitted via elog
+- Added "Icon comment" option
+- Added text search in all attributes
+- Removed borders around icons in threaded display
+- Added option 'Login user'
+- Added notification about invalid user
+
+Version 2.3.3, released March 14th, 2003
+========================================
+
+- Fixed bug which prevented elogd to bind to port 80 under Linux
+- Resubmission of entries does not resubmit replies to those entries
+
+Version 2.3.2, released March 12th, 2003
+========================================
+
+- Exchanged priviledge drop and directory creation (Recai Oktas)
+- Added 'X-Mailer: Elog' and 'X-Elog-URL' in mail header
+- Only re-read elogd.cfg if changed, using stat()
+- 'Copy to' and 'Move to' now processes whole threads
+- Ignore <tab>'s in config file correctly
+- On 'restrict edit' check long_name only if short_name is not present
+- Do not overwrite existing pidfile
+- Changed path for cookies, special case for Lynx
+- Added '-f <pidfile>' option
+- Avoid cleartext password on URL if wrong username was supplied
+- Fixed bug that attributes in replies were not found in searches if display in threaded mode
+- Fixed problem that entry date changed on upload
+- Added 'attachment comment' option to elogd.cfg
+- Changed mode display with 'show text = 0'
+- Improved display of links in messages
+- Fixed problem with emails depending on MOptions attribute
+- Fixed problem with creation of nested logbook directories
+- Fixed bug with 'theme =' option in [global] section
+
+Version 2.3.1, released Februar 21st, 2003
+==========================================
+
+- All attributes in listing are now a link
+- Link color & style in listings can be changed in CSS file
+- Added option 'subst on edit <attrib> = <value>"
+- Removed "number attachments", added "enable attachments"
+- Redesigned attachment uploading
+- Use absolute "Location:" statements for redirection if "URL"
+  option is present in elogd.cfg
+- Added proper handling of "<br>" in attributes
+- Added "Reply string" option
+- Changed maximum attribute size to 1000 Bytes
+- Fixed problems with language files, cookies and "Location:"'s
+
+Version 2.3.0, released Februar 7th, 2003
+=========================================
+
+- Fixed problem with attachment names containing a "+"
+- Fixed small initialization problem with logbook directory
+- Redesigend directory structure with 'src' subdirectory
+- Implemented Cascading Style Sheets
+- Added default.css and compact.css
+- Removed theme.cfg file since it's not used anymore
+
+Version 2.2.5, released Januar 9th, 2003
+========================================
+
+- Improved speed for sending many email notifications
+- Added "Omit email to" option
+- Added "Suppress Email to users" option
+- Email recipients can now use subsitution like $name
+- Added hierarchical logbooks
+- Improved performance for large (>1000 entries) logbooks
+- Do not display all pages for large logbooks
+- Added "Resource dir" and "Logbook dir"
+- Replaced "Data dir" by "Subdir" in elogd.cfg
+- Put colors for group and logbook tabs into theme file
+- Added "Title bgcolor" and "Title fontcolor" in elogd.cfg
+
+Version 2.2.4, released December 12th, 2002
+===========================================
+
+- Added option "Menu text = xxxx" and "Find Menu text = xxxx"
+- Fixed bug with "hosts allow = .."
+- Fixed problem that when hitting "Back" after a wrong message submission
+  old text was gone
+- Fixed bug with displaying attributes in search all logbooks
+- Added strlcpy and strlcat to avoid buffer overflows
+- Implemented "Line as link" option
+- Implemented collapse/expand of threaded display
+- Do not display password in URL if wrong password
+- Added "Quick filter" option
+
+Version 2.2.3, released Nobember 20th, 2002
+===========================================
+
+- Added "charset = ..." option
+- Fixed bug with 10 attachments
+- Added "Table align = ..." option
+- Create data directory automatically
+- Allow substitutions in attributes for searches, like "Author=$full_name"
+
+Version 2.2.2, released Nobember 6th, 2002
+==========================================
+
+- "Select" command now works in non-english installations
+- Made self registration work with global password file
+- Fixed bugs when "Start page = ..." was present
+- Added "Message height = ..." option
+- Mail notification now distinguishes between new entry and updated entry
+- Made "Allow <command> = <user>" work in localized versions
+- Move whole thread when individual message is re-submitted
+- Do not display commands which are not allowed for the current user
+- All text files (preset text, welcome page, ...) can specified with an
+  absolute path if they start with "/" (or "\" under Windows)
+
+Version 2.2.1, released October 15th, 2002
+==========================================
+
+- elog program can now handle large attachments
+- find result in threaded mode does not display messages multiple times
+
+Version 2.2.0, released September 25th, 2002
+============================================
+
+- The default view of a logbook is now the page-wise listing of entries
+- Added "Show last xxx" facility
+
+Version 2.1.3, released September 16, 2002
+==========================================
+
+- Fixed wrong error "password file not found" if user doesn't exist
+- Fixed double check boxes on select command for threaded display
+- Ignore empty line in password files or lines without a ":"
+- Fixed bug where wrong password caused login screen to re-appear
+  even with correct password
+- Don't display check box for edit with "Suppress email on edit = 1"
+- Implemented "Deny <command>" option
+- Fixed bug with config other user as admin user
+
+Version 2.1.2, released September 12th, 2002
+============================================
+
+- Self registration now also works without guest menu commands
+- Reversed up/down arrow to indicate sort order
+- Added IP information to log file
+- Added "Select" functionality
+- Added ROptions for radio button options
+- Added "Copy to" and "Move to" to specify certain logbooks
+- Fixed problems with deleted logbooks
+- Fixed bug that sorting did not work in page mode
+
+Version 2.1.1, released August 13th, 2002
+=========================================
+
+- Describe self registration in doc
+- Added "self register = 2,3" with automatic admin and user notification
+
+Version 2.1.0, released August 9th, 2002
+========================================
+
+- Fixed compiling problem under Solaris
+- Added "Guest menu commands" option for anonymous login
+- Added user email to password file
+- Added $user_email to substitution list
+- Date sorting now works over all logbooks 
+- Added sorting by columns
+- Added page wise display with navigation bar
+- Show number of entries in logbook selection page
+- Changed "config" command to "admin" command
+- Added new config user page
+- Added email notify flag to password file
+- Added "Admin user" to config file
+- Added "Suppress email on edit" to config file
+- Added self-registration option
+- Added "Find Guest Menu commands"
+- Added "entry data" and "message id" to substitution list
+- Preverve attributes on edit even for preset attributes
+
+Version 2.0.5, released July 23rd, 2002
+=======================================
+
+- Made "elog:<logbook>/<id>" reference work
+- Fixed problem with Konqueror
+- Corrected doc about "submit page" example
+- Fixed caching problem in Konqueror
+- Command line port has precedence over configuration file
+- Standalone elog cannot submit messages to protected logbooks without password
+  or user name
+- Added '-r' parameter to elog for replies
+- Improved speed for threaded display significantly
+
+Version 2.0.4, released July 8th, 2002
+======================================
+
+- Fixed problem with "?cmd=Search" and wrong colors
+- Propagage "mode=threaded" though "lastxxx"
+- Fixed problem with submission of may "-----" lines
+- Added attributes with commas like 'Options = item1, "item2, 3", item2'
+  which can be enclosed in ""													
+- Return code for elog is zero for success and 1 for error
+- Fixed problem where only first line got ">" on replied to entries
+  submitted via "elog".
+- Fixed bug with reverse sort in threaded display
+- Fixed problem with "0207 1a.log" filenames containing a blank
+
+Version 2.0.3, released June 25th, 2002
+=======================================
+
+- Fixed problem that "Change password" didn't work if 
+  "Start page = ?cmd=Last 10" was set in configuration file
+- Updated browser URL to http://localhost:8080/demo in windows installer
+
+Version 2.0.2, released June 21st, 2002
+=======================================
+
+- Fixed problems with "find" and "threaded display"
+- Do "Re: " substituion only on first reply
+- Fixed problems where multiple logbooks shared the same data directory
+
+Version 2.0.1, released June 18th, 2002
+=======================================
+
+- Removed "width=50%" from logbook selection page
+- Added "port" option to config file
+- Created RPM and SRPM files
+- Fixed problem that "Date format = %A... always produced "Sunday"
+
+Version 2.0.0, released June 17th, 2002
+=======================================
+
+- Reworked database system to use indices instead of file offsets
+- Messages can now referenced by http://<your.host>/<logbook>/<id>
+  where <id> is the running message id starting from 1
+- Messages can now be edited without destroying "reply-to:" links
+- Messages can now have multiple replies
+- Added "HTML default = 3" option
+- Deleting a message now also deletes its replies
+- Added "Download" command
+- Added "-s" flag to elog for subdirectories (when running elogd 
+  under a proxy)
+- Added display of message ID
+- Sort files in ss_file_find
+- Added link display for "elog:<id>" string where <id> is the 
+  ID of a logbook message
+- Added redirection if no '/' after logbook
+- Made ".../last10?mode=summary" work
+- Introduced wrapping logbook tabs (single line insted of table cells)
+- Sort message index by date (fixed problems with messages before 2000)
+- Rebuild index if data file got changed or deleted
+- When copying messages between logbooks, keep entry date
+- Fixed problems with resubmit
+
+Version 1.3.6, released June 3rd, 2002
+======================================
+
+- Added cration of /var/run/elogd.pid
+- Abort if configuration file not found
+- Stop gracefully on Ctrl-C and "kill"
+- Program creates /var/run/elogd.pid on running
+- Change default password expiration to browser session
+- Use "Referer" for mail notification URL
+- Switched to relative path names
+- Added "user" and "group" statements in config file
+- Added "Title image URL" in theme file
+- Add <br> for replies in HTML format
+- Added "Start page" in config file, e.g. "start page = last10"
+
+Version 1.3.5, released April 30nd, 2002
+========================================
+
+- Added icons via "IOptions" statement in configuration files
+- Added some standard icons in themes/default/icons
+
+Version 1.3.4, released April 22nd, 2002
+========================================
+
+- Do bounds checking for long messages
+- Check for invalid characters (like ",") in attachment file names
+- Added "message width=" into configuration file to increase the text 
+  entry window
+- Added logging facility for user level login/logout/connect, thanks
+  to Heiko.Scheit@mpi-hd.mpg.de. Turned on by "logfile = ..." in 
+  [global] section
+- Fixed problems with search highlighting, thanks to 
+  Heiko.Scheit@mpi-hd.mpg.de
+
+Version 1.3.3, released April 2nd, 2002
+=======================================
+
+- Added "Restrict edit" flag
+- Made elogd run under Mac OS X (Darwin)
+- Made "Move to" and "Copy to" work correctly in other languages
+- Made elog utility work with elogd running on other languages 
+  (Fixed "submit" translation)
+- Require logbook flag in elog utility
+- Added support for Spanish, thanks to Julio Calvo (jhcalvo@arnet.com.ar)
+- Added "BGImage" and "BGTImage" in themes
+- Added .jpeg as valid file extension equivalent to .jpg
+- Added support for Dutch, thanks to djek@xs4all.nl
+
+Version 1.3.2, released Januar 23rd, 2002
+=========================================
+
+- Added spaces around message number in find result page to make
+  link wider
+- Added "preset <attribute> = %03d" for automatic index generation
+- Improved decoding of POST message in order to work with lynx
+- Remove "back" button from error display (NS4.7 does not support <button>)
+- Fixed wrong URL in email notification
+- Submission of new message possible even if cookie expired during editing
+- Added "Search all logbooks" flag in configuration file
+
+Version 1.3.1, released December 14th, 2001
+===========================================
+
+- Display URL links in search result page
+- Fixed a few missing string translations
+- Left-align text about attachments on edit page
+- Fixed concatenation of lines in password file on password change,
+  thanks to Michael Buselli
+- Added support for crypt() function
+- Made "Required Attributes" working with "MOptions"
+- Make relative paths work for "Data dir" and "Password file"
+
+
+Version 1.3.0, released December 13th, 2001
+===========================================
+
+- Changed global "Welcome page" to "Selection page"
+- Removed most compiler warnings with "-Wall"
+- Removed DWORD (needed for True64 Unix)
+- Added localization support, use "language =" in [global]
+- Added French and German files 
+- Added Per-Session cookies (when expiration = 0)
+- Fixed major bug with memcpy(rem_addr,...)
+- Fixed memory leak with ss_file_find
+- "Entry date" is now formatted according to "Date format"
+- Added "MOptions" for multi-valued attributes
+- Added "HTML default" option
+
+Version 1.2.6, released December 4th, 2001
+==========================================
+
+- Fixed bug with "resubmit as new entry" and deleted attachments
+- Fixed bug where "submit as HTML" got deleted on resubmit
+- Display locked attributes as text only (no input field)
+- Added FAQ about "Last 10" page as default logbook page
+- Added -h flag for multi-homed hosts; thanks to Scott Erickson
+- Fixed problem with "Date format" in short listings
+
+Version 1.2.5, released November 21st, 2001
+===========================================
+
+- Removed "Revision date:" from edit form (should better be done via an
+  attribute, preset to $date)
+- Fixed bug with "Welcome page"
+- Added "resubmit as new entry" checkbox
+
+Version 1.2.4, released November 20th, 2001
+===========================================
+
+- Added "date format" option
+- Put "copy to" and "move to" under administrative password
+- String "<mailto:user@host>" now gets correctly converted into a hot link
+- Use "comment =" string instead of logbook in page title
+- Logout takes you back to logbook selection page
+- Made http://<host>/<logbook>/?cmd=Last&<attribute>=<value> working
+- Added submit button also at bottom of page
+- Added "Enable browsing" flag
+- Implemeted default options in [global] section of elogd.cfg
+- Fixed a bug that $logbook substitution did not work in email subject
+- Added "Use Email from = <string>"
+- Made "bottom text" work with query page
+- Added option "find menu commands"
+- Added command "last x" to "find menu commands"
+- Last x gets now multiplied by 2 each time instead of added one
+- Added more spaces in attachment display of find result page
+
+Version 1.2.3, released November 15th, 2001
+===========================================
+
+- Implemented quotation marks for "email <attribute> <value>" in case
+  attribute or value contains blanks
+- Produce error if submitted attachment is too large
+- Fixed crash when nonexisting logbook in URL
+- Changed "options <attribute> = <string>" into
+  "Preset <attribute> = <string>"
+- Added "Preset text = <string> | <file>"
+- Added "Locked attributes"
+- Added "ftp://" and "mailto:" as clickable links
+- Added FAQs in documentation
+
+Version 1.2.2, released November 14th, 2001
+===========================================
+
+- Added User level access control with login/logout and password file
+- Added "Remove on reply"
+- Added "options <attribute> = $short_name etc."
+- Fixed wrong numbering when searching in several logbooks
+- Display "no entries found" in search page
+- Added "subst <attribute>" option
+- Cookies are now stored in parameter list
+- Email notification for logbooks with blanks now use %20 for blanks to
+  make link working in email
+- Search result page puts links on number instead of dates
+- Commands wich are not in the menu list cannot be executed now
+- Added "Reverse sort" flag
+- Added "Page title" in [global]
+- Added "Show text" flag for attribute-only logbooks
+- Made elogd.c compile under Cygwin
+- Fixed bug that "p<attribute>" was not working any more
+- Changed "Email <value> =" to "Email <attribute> <value> ="
+- Added "main tab" in [global]
+- Added "bottom text" option
+- Added $logbook variable
+- Added "number attachments" option
+
+Version 1.2.1, released November 6th, 2001
+==========================================
+
+- Fixed problem with long configuration files (use POST instead GET)
+- Fixed bug with delete command and admin. password
+- Fixed bug with reply/edit/delete commands which always used last message
+- Change "use for title" into "page title", introduced attribute substitution
+- Added attribute substitution to "use email subject"
+- Changed elog program to deal with arbitrary attributes
+
+Version 1.2.0, released October 19th, 2001
+==========================================
+
+- added arbitrary attributes instead of fixed "author", "type", "category" and
+  "subject"
+- logbook entries can now be moved or copied between logbooks, if configured in
+  elogd.cfg
+- Added "Hosts allow" and "Hosts deny" for access control
+- Any attribute or several attributes can be used for the "subject" field in
+  email notifications
+- Any attribute can be used as a title for the web page
+- A comment can be displayed above the text entry box
+- A site-specifig URL can be defined for the Help button, can also point
+  directly to a file in the configuration directory, which gets served
+  by elogd
+- On the search page, the result can be sorted in reverse order
+- On full-text searches, the pattern is highlighted in the result
+- If a "types" entry is present in elogd.cfg, a help page is displayed for
+  upgrading the configuration file
+- Added "boolean" attributes which are represented by a checkbox
+- Added "Filtered browsing = 0/1" flag
+- Added "Display search" list
+- Added "HELO" statement in SMTP communication, thanks to David Monk.
+- Added "Welcome title" for logbook selection page
+- Moved "SMTP host" to [global] section
+- Added "Display email recipients = 0/1"
+- Added "Suppress default = 2" for no checkbox at all
+- Added "Show attachments" flag
+- Added global and logbook "Welcome page"
+- Added "Submit page"
+- Added "Email message body" flag
+- Added "config" menu to edit elogd.cfg over the web
+- Changed "delete password" into "admin password" which is now used
+  both to delete messages and to config elogd.cfg
+
+Version 1.1.3, released October 12th, 2001
+==========================================
+
+- Various problems fixed with read passwords:
+  o First page of single logbook was always displayed even with read password
+  o Without "-k" flag, some browsers were hanging on password page
+- Fixed CRLF problem with some SMTP hosts (courtesy of Michael Jones)
+- Fixed a bug in the elog submission program which added a wrong line
+  at the end of a message
+- Fixed bug which caused the "find" function to display only one entry if
+  a file xyx.log is present in the data directory
+
+Version 1.1.2, released October 9th, 2001
+=========================================
+
+- Implemented keep-alive of connection. This speeds up considerably especially
+  when browsing through a logbook. It could be that with the Opera browser
+  there are some problems. In this case, start elogd with the "-k" flag to
+  turn keep-alive off.
+
+Version 1.1.1, released August 31th, 2001
+=========================================
+
+- Fixed various bugs to make Elog work with the Opera browser
+
+Version 1.1.0, released August 28th, 2001
+=========================================
+
+- Added "themes"
+- Added tabs for logbook selection
+- Added graphical browse buttons
+- Added "first" browse button
+- Menu can be switched from buttons to links
+- Replaced "query" by more appropriate "find"
+- Search can span multiple logbooks
+- Search can produce "printable output", which is optimized for printing
+- Search has no default start date, which means that the whole logbook is
+  searched by default
+- Configuration and themes file get re-read at each access
+
+Version 1.0.5, released August 8th, 2001
+========================================
+
+- Added separate password for message deletion
+- Added expiration time for passwords
+- Added "suppress Email notification" for message entry
+
+Version 1.0.4, released August 7th, 2001
+========================================
+
+- Fixed bug where Email notification only got sent to "Email All"
+- Fixed bug with wrong display of logbook list if no logbook is
+  specified
+- Categories and Types were mixed if several logbooks are used. Fixed.
+
+Version 1.0.3, released August 2nd, 2001
+========================================
+
+- Added email facility, please refer to the documentation
+- Added "Authors =" option in configuration file
+- Added "Summary lines =" option in configuration file
+- Fields in "New" page can be pre-populated by using pauthor=xxx etc. in the URL
+- Added "back" button on certain pages
+
+Version 1.0.2, released July 26, 2001
+=====================================
+- Added URL = flag in elgod.cfg file and update documentation accourdingly
+  to support secure connections over STUNNEL and SSH
+
+Version 1.0.1, released July 24, 2001
+=====================================
+
+- Use subject as page title, useful when bookmarking pages
+- Display text with "http://xxx" in logbook pages as active links
+- Increase password expiration from 1h to 1d for computers with daylight
+  savings time incorrectly set
+
+Version 1.0.0, released June 20, 2001
+=====================================
+
+Initial revision

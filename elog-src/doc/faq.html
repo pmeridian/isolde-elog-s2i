@@ -1,0 +1,443 @@
+<HTML>
+<HEAD>
+  <TITLE>ELOG FAQ</TITLE>
+  <LINK REV="made" HREF="mailto:fredp&#64;mygale.org">
+  <META NAME="generator" CONTENT="NoteTab Light 4.86c">
+  <META NAME="author" CONTENT="Fred Pacquier">
+  <META NAME="description" CONTENT="Home of the Electronic Logbook (ELOG) package">
+  <META NAME="keywords" CONTENT="ELOG MIDAS PSI RITT">
+<LINK REL="stylesheet" TYPE="text/css" HREF="elog.css">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<div class=title>&nbsp; ELOG FAQ &nbsp;</div>
+<p>
+<div class=menu>&nbsp;Site map :&nbsp;
+&nbsp;[<a class=nav href="index.html">Home</a>]&nbsp;
+&nbsp;[<a class=nav href="userguide.html">User's Guide</a>]&nbsp;
+&nbsp;[<a class=nav href="adminguide.html">Administrator's Guide</a>]&nbsp;
+&nbsp;[FAQ]&nbsp;
+&nbsp;[<a class="nav" href="http://midas.psi.ch/elogs/Forum">Forum</a>]&nbsp;
+&nbsp;[<a class=nav href="wishlist.html">Wishlist</a>]&nbsp;
+&nbsp;[<a class=nav href="contrib.html">Contributions</a>]&nbsp;
+&nbsp;[<a class=nav href="http://midas.psi.ch/elogs/Linux%20Demo/">DEMO</a>]&nbsp;
+&nbsp;[<a class=nav href="download.html">Download</a>]&nbsp;
+</div>
+<p>
+<div class=Sub><b>Frequently Asked Questions about usage and configuration</b></div>
+<center>Please check also the <a href="http://midas.psi.ch/elogs/Forum">ELOG Forum</a>.</center>
+<hr>
+<OL>
+<LI><a href=#1>How does one configure elog to display the last message by default</a>
+<LI><a href=#2>Are there any plans to implement a MySQL back end?
+<LI><a href=#3>Can I run the ELOG daemon from inside Apache or any other Web server?
+<LI><a href=#4>I can access my logbook without any password, isn't that a security problem?
+<LI><a href=#5>I want a bookmark pointing to the last page where an attribute has a certain value
+<LI><a href=#6>I want a logbook with public read access (no password), but restricted write access
+<LI><a href=#7>I have many loogbooks with password files, so if I add a user or want to change
+a password I have to do this for all logbooks which is painful.
+<LI><a href=#8>How can I configure ELOG such that it displays something else than the message list by default?
+<LI><a href=#9>I want to have additional commands specific to my lookbook
+<LI><a href=#10>How does one configure elog to disable editing of existing messages? I want a logbook
+where one can enter messages but not change them afterwards.
+<LI><a href=#11>How can I track various revisions of a message using the "edit" command?
+<LI><a href=#12>How can I enter a date which is different from current one?
+<LI><a href=#13>I cannot pass the login page, it's always redisplayed even if I put in the right password?
+<LI><a href=#14>How can I change an attribute for an entire thread? We have an attribute "open problem/fixed"
+which should be changed for the whole thread if that problem has been fixed.
+<LI><a href=#15>Can I use RSS feeds with password protected logbooks?
+<LI><a href=#16>How can I mark a whole thread open or closed?
+<LI><a href=#17>Does elog have a spell checker?
+<LI><a href=#18>Why are entries with large attachments submitted so slowly?
+<LI><a href=#19>The elgod daemon crashes from time to time, what can I do?
+<LI><a href=#20>How can I create an ELOG entry automatically from a script?
+<LI><a href=#21>I want to notify different people for different things, how do I set up this?
+</OL>
+
+<hr>
+<OL>
+
+<LI><a name=1><b>How does one configure elog to display the last message by default</b>
+<p>
+One can use the <b><code>Start page</code></b> option for that. The entry:<p>
+<code>
+Start page = 0?cmd=last
+</code><p>
+shows the last message entry by default. To have the described behaviour for
+all logbooks, the above statements can be placed in the <b><code>[global]</code></b> section.
+<p>
+
+
+<LI><a name=2><b>Are there any plans to implement a MySQL back end?</b>
+<p>
+No. The idea behind <b>ELOG</b> is that it is a <I>simple to use, simple to install</I> application.
+Many people use <b>ELOG</b> under Windows, and they even don't know what MySQL means. Other people like
+the flat file database format, because it's simple, easily accessible from other programs, and it's easy
+to backup certain days or months of the database (since the filenames contain the date). Since <b>ELOG
+</b> should be independent of any other package, some "switchable" backend between native <b>ELOG</b>
+format and MySQL would be needed, which is lots of work and not planned right now.<p>
+
+However, there are several contributions from other people who wrote scripts to put ELOG entries
+into a MySQL database. One is available at
+<a href="http://midas.psi.ch/elogs/Forum/387">http://midas.psi.ch/elogs/Forum/387</a>.
+<p>
+
+<LI><a name=3><b>Can I run the ELOG daemon from inside Apache or any other Web server?</b>
+<p>
+No. The <b>ELOG</b> daemon was designed as a standalone server and it will stay like that in the future.
+The reason for that is that <code><b>elogd</b></code> should not rely on any other software. This is for
+example important for many people running <code><b>elogd</b></code> under Windows, and they have no clue
+how to install Apache for Windows. The installation and maintenance for <code><b>elogd</b></code>
+therefore becomes much simpler. To run <code><b>elogd</b></code> in parallel to an Apache server on
+port 80, use Apache as a proxy, following the instruction on the installation page
+("Running elogd under Apache").<p>
+
+<LI><a name=4><b>I can access my logbook without any password, isn't that a security problem?</b>
+
+<p> By default, no password is used in <b>ELOG</b>. This can be useful for public directories etc. that
+anybody should be able to read. To add password security, read the documentation under <a href=
+"config.html#access">Access control</a>. The recommended setup is password file security with
+guest access.
+
+<p> Note that passwords are transferred over the network in plain text and therefore not secure. If this
+is a problem, a <a href="adminguide.html#secure">secure</a> network connection should be used. <p>
+
+<LI><a name=5><b>I want a bookmark pointing to the last page where an attribute has a certain value</b>
+<p>
+Use the URL:
+<p>
+<code>http://&lt;your.host&gt;/&lt;logbook&gt;/?cmd=Last&&lt;attribute&gt;=&lt;value&gt;</code>
+<p>
+This executes the "<I>Last</I>" command using a filter with &lt;attribute&gt;=&lt;value&gt;. The following command displays the same page, but also locks the attribute (checks the box next to &lt;attribute&gt;) so that browsing (next, previous, first, last) only shows pages with that attribute value.
+<p>
+<code>http://&lt;your.host&gt;/&lt;logbook&gt;/?cmd=Last&&lt;attribute&gt;=&lt;value&gt;&l&lt;attribute&gt;=1</code>
+<p>
+Note the "l" before the second attribute, as in "<I>lAuthor=1</I>".
+<p>
+
+<LI><a name=6><b>I want a logbook with public read access (no password), but restricted write access</b>
+<p>
+In an old version of the FAQ it has been stated here that one has to use two logbooks pointing to
+the same data directory. From Version 2.0.6 on, this can be accomplished much easier by the usage
+of the <b>"Guest menu command"</b>. Use a logbook with user level access (password file), and add
+menu lists like in the following example to the configuration file:<p>
+
+<code>
+Menu commands = New, Edit, Reply, Find, Last 10, Change password, Logout, Help<br>
+Guest menu commands = Find, Last 10, Login, Help<br>
+</code><p>
+
+If users access the logbook without supplying a user name, they are treated like "guests" and see
+the "Guest menu commands", with which one cannot submit or edit logbook entries. If one hits the
+"login" button, a user can login with a user name/password and sees the normal menu commands, with
+which one can submit new logbook entries.<p>
+
+An optional self registration is possible by specifying<p>
+
+<code>
+Self register = 1
+</code><p>
+
+in the configuration file. New users can then create their own accounts.<p>
+
+<LI><a name=7><b>I have many loogbooks with password files, so if I add a user or want to change
+a password I have to do this for all logbooks which is painful.</b>
+<p>
+You can have several logbooks point to the same password file. So if you change a user or
+password in that file, it becomes automatically available in all logbooks which use that file.
+<p>
+
+<LI><a name=8><b>How can I configure ELOG such that it displays something else than the message list by default?</b>
+<p>
+There is a simple trick. You use the <b>"<I>Start page</I>"</b> option in the <code><b>elogd</b></code> file
+to redirect the start page to something else. Here are some examples:
+<p>
+<pre>
+?npp=5                                  for the last 5 messages
+?last=7                                 show last 7 days (week)
+?cmd=New                                show the new message entry form
+?cmd=Find                               Show the "find" page
+?cmd=Search&amp;&lt;attrib&gt;=&lt;value&gt;            for a search with &lt;attrib&gt;=&lt;value&gt;
+</pre>
+
+The various URLs can be copied from the browser's address bar when doint various things there.
+<p>
+
+<LI><a name=9><b>I want to have additional commands specific to my lookbook</b>
+<p>
+New commands can be added for example with the <b><code>"Bottom text = bottom.html"</b></code> option.
+To display all messages from last week and month of with "category = info", one can put
+following HTML code in bottom.html:
+
+<pre>
+&lt;center&gt;
+&lt;a href="?last=7&Category=Info"&gt;Info from last week&lt;/a&gt; |
+&lt;a href="?last=31&Category=Info"&gt;Info from last month&lt;/a&gt; |
+&lt;/center>
+</pre>
+<p>
+Note that the parameters <b><code>"last=7&Category=Info"</b></code> applies a filter on the display. You can learn
+how to make these filters by looking at the URL in your browser when you submit a find
+command with certain options.<p>
+
+<LI><a name=10><b>How does one configure elog to disable editing of existing messages? I want a logbook where one
+can enter messages but not change them afterwards.</b>
+<p>
+This works with the option <b><code>Menu commands</code></b>. By default, the menu commands <b><code>
+Back, New, Edit, Delete, Reply, Find, Config, Help</code></b> are dispalyed and allowed. To avoid
+editing (and deleting) of existing messages, one removes the two commands and puts following
+statement into <b><code>elogd.cfg</b></code>:
+<p>
+<code>Menu commands = Back, New, Reply, Find, Config, Help</code>
+<p>
+This prohibits the execution of the commands "Edit" and "Delete".
+<p>
+
+<LI><a name=11><b>How can I track various revisions of a message using the "edit" command?</b>
+<p>
+There are two ways:
+<p>
+
+<UL>
+<LI>Add an attribute which keeps the revision dates and names as follows:
+<pre>
+Attributes = Author, ..., Revisions
+Locked attributes = Revisions
+Subst on Edit Revisions = $Revisions&lt;br&gt;$date by $long_name
+</pre>
+
+The "Revisions" attribute cannot be modified manually (since it's locked). On each edit, the
+date and the current author is appedned to the previous revisions. The "&lt;br&gt;" puts a
+line break between the entries.<p>
+
+<LI>Create a thread for each entry. In addition of having the date and author of different
+revisions, the message content is kept. To revise and entry, one hits "Reply" instead of "Edit"
+(one can disable the "Edit" command for example). If one puts following option into the
+configuration file:<p>
+
+<pre>
+Reply string = ""
+</pre>
+
+then the reply contains the original message without the usual "&gt; " at the beginning of
+each line. One can then edit the message and submit it. In the threaded message list display,
+one sees then the different revisions as a message thread.<p>
+</UL>
+
+<LI><a name=12><b>How can I enter a date which is different from current one?</b>
+<p>
+Usually, the current date/time is recorded when you add a new entry. It might be, however,
+that one wants to enter "old" entries, or some entries with a date in the future (like a
+to-do list with a due date). To do that, on can add a new attribute (let's call it
+<i>Record date</i>, to be different from the pre-defined <i>Date</i>:<p>
+
+<code>
+Attributes = Author, ..., Record date<br>
+Type Record date = date<br>
+Preset Record date = $date<br>
+Date format = %Y %m %d<br>
+List Display = Record date, Author, ...<br>
+Start page = ?rsort=Record date<br>
+</code><p>
+
+The <i>Preset Record date</i> statement sets the record date to the current date, but
+this can then of course edited during the message entry. The <i>List Display</i> and
+<i>Start page</i> statements show the record date as the first column in the summary
+display and also sort by that. Note the <i>Date format</i> showing first year, then month
+and day. This is necessary since sorting is done only lexically. Please note that the
+<i>List Display</i> was renamed recently. Prior to version 2.3.10, it was called
+<i>Display Search</i>.
+
+<LI><a name=13><b>I cannot pass the login page, it's always redisplayed even if I put in the right password?</b>
+<p>
+This can happen if you change the login policy, for example move the <code><b>Password file =</b></code> entry
+in the configuration file from a logbook section to the [global] section or back. In that case some old cookies
+could be stored in your browser, which confuse the system. Please delete your cookies in the browser to resolve
+this problem. Read your browser documentation on how to do that.<p>
+
+<LI><a name=14><b>How can I change an attribute for an entire thread? We have an attribute "open problem/fixed"
+which should be changed for the whole thread if that problem has been fixed.</b>
+<p>
+This is a typical request of a bug-tracking set-up. Someone enters a request, opening a new
+thread. The expert(s) reply to the the request, and after a while, the request gets satisfied
+or the problem gets fixed. If an attribute like "status", having the options "open" and "fixed"
+could get changed for the whole thread, on could very easily search for all "open" problems.<p>
+
+Since this functionality is not implemented, an alternative strategy is recommended: Implement
+two (or more) logbooks. The first logbook has open issues, the second one has fixed ones. When
+an entry changes state, it simply has to be copied to the second logbook. This can be done
+by defining the menu command "move" in the config file, like:<p>
+
+<code>
+Menu commands = Back, New, Edit, Delete, Reply, Find, Move to, Config, Help<br>
+</code><p>
+
+Note the additional <i><b>Move to</b></i>. This solution is even more elegant than having
+attributes changed in whole threads, since one has two separate logbooks, and can treat
+the second one more like an archive, make separate back-ups, or deleting some entries
+after some time, while keeping the open issues untouched.
+<p>
+</UL>
+
+<LI><a name=15><b>Can I use RSS feeds with password protected logbooks?</b>
+<p>
+RSS feeds normally only work for logbooks which have at least public read access (via
+the guest menu commands). There is however a way to allow only restricted read access
+and still use RSS feeds. This is done by adding an additional read password via the
+<code><b>elogd -r &lt;pwd&gt; -l &lt;logbook&gt;</b></code> command. This password
+(username may be any) can then be used in an RSS reader for restricted access. One reader
+which has been successfully used with this kind of authentication is 
+<a href="http://www.rssreader.com">RSSReader</a>.<p>
+
+<LI><a name=16><b>How can I make a whole thread open or closed?</b>
+<p>
+Sometime people want to mark a whole thread in a way. An example is a to-do list,
+where they want a special icon on high priority things, and have this icon disappear
+one the task is finished. This can be easily done with icons. The configuration could
+look like this:
+
+<pre>
+Attributes = Author, Status, Subject
+IOptions Status = icon1.gif, icon2.gif, icon4.gif
+Preset Status = icon4.gif
+Preset on reply status = icon2.gif
+Icon comment icon1.gif = Closed entry
+Icon comment icon4.gif = Open entry
+Thread display = $Author $Subject
+Thread icon = Status
+</pre><p>
+
+New entries get an exclamation mark icon for example ("Preset status = ..."). Replies
+to this entry get a reply icon. Once the thread should be closed, one simple edits
+the top entry in that thread and changes the icon. The icon1.gif from the distribution 
+is maybe not ideally suited for that, but one could make a green check mark icon for example
+for that. The "Thread display" and "Thread icon" make this icon appear at the left side
+of the threaded display.<p>
+   
+An alternative approach would be to use two logbooks. The first one receive all new entries 
+("open items"). Once an entry (with its replies) gets closed, it must be moved manually to the 
+second logbook ("closed items"). This can be done with the "Move To" command (see
+"menu commands" in config file). This way one nicely separates open and closed items in
+two separate logbooks. One can still search both logbooks at the same time if one checks
+"Search all logbooks" in the find page.<p>
+
+Starting from elog version 2.7.7, there now even a third way to do this.
+With an additional line in the configuration file:
+
+Collapse tn last = 1
+
+(in fact the default, but to be explicit), then when the thread is 
+ready to be marked as closed, select the "closed entry" icon when 
+writing the last entry.  
+
+When the entries are viewed in "threaded" mode, then the closed entry
+icon appears on the last entry; and when in "threaded, collapsed" mode,
+then the closed entry icon appears in the one line that represents that
+whole thread.
+
+<LI><a name=17><b>Does elog have a spell checker?</b>
+<p>
+No, but you can use any spell checker which works with your browser. Examples are
+<a href="http://www.iespellc.com">IESpell</a> for Internet Explorer and 
+<a href="http://spellbound.sourceforge.net">SpellBound</a> for Mozilla-based 
+browsers.<p>
+
+<LI><a name=18><b>Why are entries with large attachments submitted so slowly?</b>
+<p>
+If email notifications are used, the ELOG program has to pass these attachments
+to the email server, which might take quite some time. Some email servers even
+don't allow to forward attachments if they are larger than a few mega bytes. In
+that one can simply turn off the forwarding of email attachments with
+
+<pre>Email format = 111</pre> 
+
+this causes only the attachment names being forwarded, not the attachments
+themselves.<p>
+
+<LI><a name=19><b>The elgod daemon crashes from time to time, what can I do?</b>
+<p>
+Bugs are constantly fixed inside elogd so a upgrade to the current
+version is recommended as a first measrue. If that does not help, the key
+will be the reproducibility of the crash. I only can fix problems if I can 
+reproduce them. Sometimes it's related to strange logbook entries which cause 
+elogd to crash when they are edited. So if there is a way to reproducible
+trigger the problem, I need the files and confiration related with it. If
+I can reproduce it in my local installation, I can fix it pretty soon.<p>
+
+If that is not possible, an alternative is to run elgod under a debugger, and
+do a stack trace if the program dies. Under linux, this can be done using
+the gdb debugger, which might look like this:
+<pre>
+[~/elog]$ gdb ./elogd
+GNU gdb Red Hat Linux (6.5-25.el5rh)
+...
+
+(gdb) run
+Starting program: /afs/psi.ch/user/r/ritt/elog/elogd
+elogd 2.7.5 built Dec  2 2008, 10:47:09 revision 2147
+ImageMagick detected
+Indexing logbooks ... test
+
+Program received signal SIGSEGV, Segmentation fault.
+0x08054beb in el_index_logbooks () at src/elogd.c:3892
+3892       *p = (char)1;
+(gdb) where
+#0  0x08054beb in el_index_logbooks () at src/elogd.c:3892
+#1  0x080b8774 in server_loop () at src/elogd.c:27565
+#2  0x080bbdd5 in main (argc=1, argv=0xbfee5b54) at src/elogd.c:28923
+(gdb)
+</pre>
+
+So the basic command is to make a stack trace with "where" after a
+segmentation fault. This tells me where in the code something wrong happened
+(in this case it was inside the function el_index_logbooks() at line 3892.
+Please send me this information and I will try then to figure out what was
+wrong.<p>
+
+<LI><a name=20><b>How can I create an ELOG entry automatically from a script</b>
+<p>
+I agree, it's a bit hidden, but on the 
+<a href="https://midas.psi.ch/elog/userguide.html">User's Guide</a>, at the
+bootom of the page, last point, there is a description of the standalone
+"elog" utility, which can be used from a script or from another program to
+submit an automatic email entry. This works locally or remotely, with optional
+attachments. Enter "elog -h" for a full list of options. The elog utility
+is part of the distribution and resides in the same directory as the elogd
+daemon.
+<p>
+
+<LI><a name=21><b>I want to notify different people for different things, how do I set up this?</b>
+<p>
+Assume you want to send an email notification to person A for a problem report,
+to person B for problem fix and so on. The simplest way is to use the 
+<code>Email &lt;attribute&gt; &lt;value&gt; = &lt;email address&gt;</code> syntax.
+So you could set-up following configuration:
+<pre>
+Attributes = Author, Type
+Options Type = Problem Report, Problem Fix
+Email Type Problem Report = person.a@elog.com
+Email Type Problem Fix = person.b@elog.com
+</pre>
+If you want to select email addresses directly from a list, you can do the set-up
+as following:
+<pro>
+Attributes = Author, Notify
+MOptions Notify = Person A, Person B
+Email Notify Person A = person.a@elog.com
+Email Notify Person B = person.b@elog.com
+</pro>
+This way you can for each entry select one or more people to be notified from
+the pre-defined list.
+<p>
+
+</OL>
+
+<HR>
+<div class=footer>&nbsp;
+Content by <a class=nav href="mailto:Stefan.Ritt&#64;psi.ch">Stefan Ritt</a>,
+Web pages by <a class=nav href="mailto:fredp&#64;mygale.org">Fred Pacquier</a>
+ - last modified on 17/02/2003
+&nbsp;</div>
+</BODY>
+</HTML>
