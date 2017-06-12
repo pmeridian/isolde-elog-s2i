@@ -18,7 +18,7 @@ RUN yum install -y ghostscript && yum clean all -y
 RUN yum install -y ImageMagick && yum clean all -y
 
 # TODO (optional): Copy the builder files into /opt/app-root
-COPY ./elog-src/ /opt/app-root/
+COPY ./elog-src /opt/app-root/
 
 
 # TODO: Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
@@ -36,6 +36,3 @@ EXPOSE 8080
 
 # TODO: Set the default CMD for the image
 CMD ["/usr/libexec/s2i/usage"]
-
-# Add the elog-nfs volume
-VOLUME /elog-nfs
