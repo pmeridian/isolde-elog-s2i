@@ -7,4 +7,5 @@
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
-exec /opt/app-root/sbin/elogd -p 9090 -c /opt/app-root/elog/elogd.cfg -D;
+echo "---> Running elog daemon on port 9090..."
+exec /opt/app-root/sbin/elogd -p 9090 -c /elog-nfs/elogd.cfg -D;

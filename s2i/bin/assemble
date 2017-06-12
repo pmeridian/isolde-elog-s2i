@@ -23,4 +23,5 @@ echo "---> Installing application source..."
 cp -Rf /tmp/src/. ./
 
 echo "---> Building application from source..."
+cd /opt/app-root/elog-src/
 make install
