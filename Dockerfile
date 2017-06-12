@@ -15,7 +15,7 @@ LABEL io.k8s.description="Platform for building PSI elog for ISOLDE" \
 
 # TODO: Install required packages here:
 RUN yum install -y epel-release
-RUN yum install -y emacs && yum clean all -y
+RUN yum install -y emacs-nox && yum clean all -y
 RUN yum install -y ghostscript && yum clean all -y
 RUN yum install -y ImageMagick && yum clean all -y
 RUN yum install -y openssl-devel && yum clean all -y
