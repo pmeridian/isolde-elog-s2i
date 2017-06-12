@@ -8,4 +8,4 @@
 #
 
 echo "---> Running elog daemon on port 9090..."
-exec /opt/app-root/sbin/elogd -p 9090 -c /elog-nfs/elogd.cfg -D;
+/opt/app-root/sbin/elogd -p 9090 -c /elog-nfs/elogd.cfg -D;
