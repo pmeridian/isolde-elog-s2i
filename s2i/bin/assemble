@@ -20,8 +20,8 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
 fi
 
 echo "---> Installing application source..."
-cp -Rf /tmp/src/. ./
+#cp -Rf /tmp/src/. ./
 
 echo "---> Building application from source..."
-cd /opt/app-root/elog-src/
-make install
+#cd /opt/app-root/elog-src/
+#make install
