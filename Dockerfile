@@ -14,7 +14,8 @@ LABEL io.k8s.description="Platform for building PSI elog for ISOLDE" \
       io.openshift.tags="builder,isolde-elog,elog"
 
 # TODO: Install required packages here:
-RUN yum install -y epel7-candidate
+RUN yum install -y epel-release
+RUN yum install -y emacs && yum clean all -y
 RUN yum install -y ghostscript && yum clean all -y
 RUN yum install -y ImageMagick && yum clean all -y
 RUN yum install -y openssl-devel && yum clean all -y
@@ -37,4 +38,4 @@ USER 1001
 EXPOSE 8080
 
 # TODO: Set the default CMD for the image
-CMD bash
+#CMD bash
