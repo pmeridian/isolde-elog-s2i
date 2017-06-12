@@ -14,6 +14,7 @@ LABEL io.k8s.description="Platform for building PSI elog for ISOLDE" \
       io.openshift.tags="builder,isolde-elog,elog"
 
 # TODO: Install required packages here:
+RUN yum install -y epel-release
 RUN yum install -y ghostscript && yum clean all -y
 RUN yum install -y ImageMagick && yum clean all -y
 RUN yum install -y elog && yum clean all -y
