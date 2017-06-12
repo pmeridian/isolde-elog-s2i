@@ -38,4 +38,4 @@ USER 1001
 EXPOSE 8080
 
 # TODO: Set the default CMD for the image
-#CMD bash
+CMD ["elogd","-p 9090","-c /elog-nfs/elogd.cfg"]
