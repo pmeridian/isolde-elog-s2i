@@ -30,6 +30,7 @@ RUN yum install -y elog && yum clean all -y
 
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:1001 /opt/app-root
+RUN chown -R 1001:1001 /var/lib/elog
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
@@ -38,4 +39,4 @@ USER 1001
 EXPOSE 8080
 
 # TODO: Set the default ENTRYPOINT and CMD for the image
-ENTRYPOINT ["elogd","-p","9090","-c","/etc/elogd.cfg"]
+ENTRYPOINT ["elogd","-p","9090","-c","/elog-nfs/elogd.cfg"]
