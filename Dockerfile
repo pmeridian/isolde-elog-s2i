@@ -37,5 +37,5 @@ USER 1001
 # TODO: Set the default port for applications built using this image
 EXPOSE 8080
 
-# TODO: Set the default CMD for the image
-CMD ["elogd","-p 9090","-c /elog-nfs/elogd.cfg"]
+# TODO: Set the default ENTRYPOINT and CMD for the image
+ENTRYPOINT ["elogd","-p","9090","-c","/etc/elogd.cfg"]
