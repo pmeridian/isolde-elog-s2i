@@ -19,7 +19,10 @@ RUN yum install -y emacs-nox && yum clean all -y
 RUN yum install -y ghostscript && yum clean all -y
 RUN yum install -y ImageMagick && yum clean all -y
 RUN yum install -y openssl-devel && yum clean all -y
-RUN yum install -y elog && yum clean all -y
+#RUN yum -y --enablerepo=epel-testing install elog
+RUN yum install -y ckeditor && yum clean all -y
+RUN yum install -y elog-client && yum clean all -y
+RUN rpm -ivh https://kojipkgs.fedoraproject.org//packages/elog/3.1.3/2.el7/x86_64/elog-3.1.3-2.el7.x86_64.rpm
 
 # TODO (optional): Copy the builder files into /opt/app-root
 #COPY ./elog-src /opt/app-root/
