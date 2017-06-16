@@ -1,1 +1,0 @@
-#define GIT_REVISION "Fri May 19 19:27:53 2017 +0200 - 98466346"

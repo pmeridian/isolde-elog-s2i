@@ -1,7 +1,0 @@
-==============
- ISOLDE e-log
-==============
-
-This is a branch of Stephan Ritt's elog software, developed at PSI. It is modified here to run on OpenShift at CERN for the ISOLDE elogs.
-
-Liam Gaffney (liam.gaffney@cern.ch)

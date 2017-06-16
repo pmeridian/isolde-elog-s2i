@@ -19,6 +19,7 @@ RUN yum install -y emacs-nox && yum clean all -y
 RUN yum install -y ghostscript && yum clean all -y
 RUN yum install -y ImageMagick && yum clean all -y
 RUN yum install -y openssl-devel && yum clean all -y
+RUN yum install -y stunnel && yum clean all -y
 #RUN yum -y --enablerepo=epel-testing install elog
 RUN yum install -y ckeditor && yum clean all -y
 RUN yum install -y elog-client && yum clean all -y
@@ -34,12 +35,19 @@ RUN rpm -ivh https://kojipkgs.fedoraproject.org//packages/elog/3.1.3/2.el7/x86_6
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 RUN chown -R 1001:1001 /opt/app-root
 RUN chown -R 1001:1001 /var/lib/elog
+RUN HOME=/tmp
+
+# Copy the stunnel.conf file
+COPY ./stunnel.conf /etc/stunnel/
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
 
 # TODO: Set the default port for applications built using this image
 EXPOSE 8080
+
+# Run stunnel for the email redirection
+RUN stunnel /etc/stunnel/stunnel.conf
 
 # TODO: Set the default ENTRYPOINT and CMD for the image
 ENTRYPOINT ["elogd","-p","9090","-c","/elog-nfs/elogd.cfg"]
