@@ -46,8 +46,8 @@ USER 1001
 # TODO: Set the default port for applications built using this image
 EXPOSE 8080
 
-# Run stunnel for the email redirection
-RUN stunnel /etc/stunnel/stunnel.conf
+# Copy the entry point startup command script
+COPY ./entrypoint.sh /opt/app-root/entrypoint.sh
 
 # TODO: Set the default ENTRYPOINT and CMD for the image
-ENTRYPOINT ["elogd","-p","9090","-c","/elog-nfs/elogd.cfg"]
+ENTRYPOINT ["/opt/app-root/entrypoint.sh"]
