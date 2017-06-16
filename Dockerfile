@@ -37,8 +37,9 @@ RUN chown -R 1001:1001 /opt/app-root
 RUN chown -R 1001:1001 /var/lib/elog
 RUN HOME=/tmp
 
-# Copy the stunnel.conf file
+# Copy the stunnel.conf and stunnel.service files
 COPY ./stunnel.conf /etc/stunnel/
+COPY ./stunnel.service /etc/systemd/system/stunnel.service
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
