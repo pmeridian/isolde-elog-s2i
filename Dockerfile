@@ -14,8 +14,7 @@ LABEL io.k8s.description="Platform for building PSI elog for ISOLDE" \
       io.openshift.tags="builder,isolde-elog,elog"
 
 # TODO: Install required packages here:
-RUN yum install -y postfix
-RUN yum install -y mailx
+RUN yum install -y sendmail
 RUN yum install -y epel-release
 RUN yum install -y emacs-nox
 RUN yum install -y ghostscript
@@ -39,8 +38,10 @@ RUN chown -R 1001:1001 /opt/app-root
 RUN chown -R 1001:1001 /var/lib/elog
 RUN mkdir /etc/logbooks
 RUN chown -R 1001:1001 /etc/logbooks
-RUN HOME=/tmp
 RUN mkfifo /var/spool/postfix/public/pickup
+
+# Set timezone
+RUN ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 
 # Copy the stunnel.conf and stunnel.service files
 #COPY ./stunnel.conf /etc/stunnel/
@@ -48,6 +49,7 @@ RUN mkfifo /var/spool/postfix/public/pickup
 
 # Copy postfix configuration
 COPY ./postfix.conf /etc/postfix/main.cf
+COPY ./postfix.generic /etc/postfix/generic
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
