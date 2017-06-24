@@ -38,18 +38,10 @@ RUN chown -R 1001:1001 /opt/app-root
 RUN chown -R 1001:1001 /var/lib/elog
 RUN mkdir /etc/logbooks
 RUN chown -R 1001:1001 /etc/logbooks
-RUN mkfifo /var/spool/postfix/public/pickup
 
 # Set timezone
+RUN mv /etc/localtime /etc/localtime.old
 RUN ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
-
-# Copy the stunnel.conf and stunnel.service files
-#COPY ./stunnel.conf /etc/stunnel/
-#COPY ./stunnel.service /etc/systemd/system/stunnel.service
-
-# Copy postfix configuration
-COPY ./postfix.conf /etc/postfix/main.cf
-COPY ./postfix.generic /etc/postfix/generic
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
