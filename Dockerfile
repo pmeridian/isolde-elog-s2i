@@ -20,7 +20,6 @@ RUN yum install -y emacs-nox
 RUN yum install -y ghostscript
 RUN yum install -y ImageMagick
 RUN yum install -y openssl-devel
-#RUN yum install -y stunnel
 #RUN yum -y --enablerepo=epel-testing install elog
 RUN yum install -y ckeditor
 RUN yum install -y elog-client && yum clean all -y
@@ -42,6 +41,9 @@ RUN chown -R 1001:1001 /etc/logbooks
 # Set timezone
 RUN mv /etc/localtime /etc/localtime.old
 RUN ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
+
+# Do sendmail configuration
+COPY ./sendmail.mc /etc/mail/sendmail.mc
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
