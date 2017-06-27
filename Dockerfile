@@ -14,7 +14,7 @@ LABEL io.k8s.description="Platform for building PSI elog for ISOLDE" \
       io.openshift.tags="builder,isolde-elog,elog"
 
 # TODO: Install required packages here:
-RUN yum install -y sendmail
+RUN yum install -y sendmail sendmail-cf
 RUN yum install -y epel-release
 RUN yum install -y emacs-nox
 RUN yum install -y ghostscript
@@ -44,6 +44,7 @@ RUN ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 
 # Do sendmail configuration
 COPY ./sendmail.mc /etc/mail/sendmail.mc
+RUN cd /etc/mail/; make
 
 # This default user is created in the openshift/base-centos7 image
 USER 1001
