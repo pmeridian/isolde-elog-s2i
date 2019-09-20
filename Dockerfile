@@ -50,7 +50,7 @@ RUN cd /etc/mail/; make
 USER 1001
 
 # TODO: Set the default port for applications built using this image
-EXPOSE 8080
+EXPOSE 9090
 
 # Copy the entry point startup command script
 COPY ./entrypoint.sh /opt/app-root/entrypoint.sh
