@@ -1,8 +1,8 @@
-# isolde-elog-centos7
+# pmeridian-elog-centos7
 FROM openshift/base-centos7
 
 # TODO: Put the maintainer name in the image metadata
-MAINTAINER Liam Gaffney <liam.gaffney@cern.ch>
+MAINTAINER Paolo Meridiani <paolo.meridiani@cern.ch>
 
 # TODO: Rename the builder environment variable to inform users about application you provide them
 # ENV BUILDER_VERSION 1.0

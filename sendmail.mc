@@ -159,7 +159,7 @@ dnl #
 dnl # The following example makes mail from this host and any additional
 dnl # specified domains appear to be sent from mydomain.com
 dnl #
-MASQUERADE_AS(`isolde-elog.web.cern.ch')dnl
+MASQUERADE_AS(`mtd-elog.web.cern.ch')dnl
 dnl #
 dnl # masquerade not just the headers, but the envelope as well
 dnl #
